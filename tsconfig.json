@@ -4,9 +4,11 @@
     "allowJs": true,
     "checkJs": true,
     "isolatedModules": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "moduleResolution": "bundler",
     "strict": true,
-    "target": "ES2020",
+    "target": "ES2022",
+    "types": ["node"],
     "verbatimModuleSyntax": true
   },
   "include": ["src/**/*.ts", "src/**/*.svelte"]

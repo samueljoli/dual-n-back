@@ -16,6 +16,7 @@
           packages = with pkgs; [
             cargo
             cargo-tauri
+            just
             nodejs_24
             rustc
             rustfmt
@@ -24,6 +25,7 @@
           shellHook = ''
             echo "dual_n_back dev shell"
             echo "  npm install"
+            echo "  just"
             echo "  npm run tauri dev"
           '';
         };
