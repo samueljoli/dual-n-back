@@ -17,6 +17,7 @@
   export let debugMode: boolean;
   export let soundSelected: boolean;
   export let positionSelected: boolean;
+  export let pulseKind: MatchKind | null;
   export let onBack: () => void;
   export let onMatch: (kind: MatchKind) => void;
 </script>
@@ -48,6 +49,7 @@
     <button
       class:selected={soundSelected}
       class:debug-correct={debugMode && currentTrial?.isSoundMatch}
+      class:pulsing={pulseKind === "sound"}
       class="match-button"
       on:click={() => onMatch("sound")}
     >
@@ -58,6 +60,7 @@
     <button
       class:selected={positionSelected}
       class:debug-correct={debugMode && currentTrial?.isPositionMatch}
+      class:pulsing={pulseKind === "position"}
       class="match-button"
       on:click={() => onMatch("position")}
     >

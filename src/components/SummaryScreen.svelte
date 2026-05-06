@@ -18,8 +18,10 @@
 </script>
 
 <section class="summary-screen">
-  <p class="top-n">N = {nLevel}</p>
-  <h2>Round complete</h2>
+  <div class="summary-title-row">
+    <h2>Round complete</h2>
+    <p>N = {nLevel}</p>
+  </div>
   <div class="accuracy-ring">
     <strong>{score.accuracy}%</strong>
     <span>accuracy</span>

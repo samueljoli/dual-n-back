@@ -28,9 +28,6 @@
 
   <nav class="home-nav" aria-label="Main navigation">
     <button on:click={onSettings}>Settings</button>
-    <div class="mark" aria-hidden="true">
-      <i></i><i></i><i></i><i></i>
-    </div>
     <button on:click={onStats}>Stats</button>
   </nav>
 </section>

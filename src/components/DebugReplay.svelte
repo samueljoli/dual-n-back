@@ -8,7 +8,7 @@
    */
   import { onDestroy, onMount, tick } from "svelte";
   import { gsap } from "gsap";
-  import { POSITION_KEYS, REPLAY } from "../lib/constants";
+  import { REPLAY } from "../lib/constants";
   import { getSummaryDiagramTrials } from "../lib/game";
   import type { Trial } from "../lib/types";
 
@@ -27,12 +27,12 @@
 
   function replayDotX(position: number, offset: number) {
     const col = position % 3;
-    return replayX(offset) + (col + 0.5) * (REPLAY.boardSize / 3) - 8;
+    return replayX(offset) + 8 + col * ((REPLAY.boardSize - 32) / 2);
   }
 
   function replayDotY(position: number) {
     const row = Math.floor(position / 3);
-    return REPLAY.boardY + (row + 0.5) * (REPLAY.boardSize / 3) - 8;
+    return REPLAY.boardY + 8 + row * ((REPLAY.boardSize - 32) / 2);
   }
 
   function isVisibleTrial(index: number) {
@@ -105,7 +105,7 @@
             <line class="replay-plus" x1={x + 29} y1={REPLAY.boardY + 35} x2={x + 41} y2={REPLAY.boardY + 35} />
             <line class="replay-plus" x1={x + 35} y1={REPLAY.boardY + 29} x2={x + 35} y2={REPLAY.boardY + 41} />
             <rect
-              class="replay-dot {POSITION_KEYS[trial.position]}"
+              class="replay-dot"
               data-replay-step={offset}
               x={replayDotX(trial.position, offset)}
               y={replayDotY(trial.position)}

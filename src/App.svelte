@@ -32,6 +32,8 @@
   let lastSession: Score | null = null;
   let countdownTimer: number | undefined;
   let trialTimer: number | undefined;
+  let pulseKind: MatchKind | null = null;
+  let pulseTimer: number | undefined;
 
   $: currentTrial = currentTrialIndex >= 0 ? trials[currentTrialIndex] : null;
   $: comparisonTrial = getComparisonTrial(trials, currentTrialIndex, nLevel);
@@ -89,6 +91,12 @@
     if (screen !== "game" || currentTrialIndex < 0 || !responses[currentTrialIndex]) return;
     responses[currentTrialIndex][kind] = true;
     responses = [...responses];
+    pulseKind = kind;
+    if (pulseTimer) window.clearTimeout(pulseTimer);
+    pulseTimer = window.setTimeout(() => {
+      pulseKind = null;
+      pulseTimer = undefined;
+    }, 620);
   }
 
   function finishRound() {
@@ -114,8 +122,11 @@
   function clearTimers() {
     if (countdownTimer) window.clearInterval(countdownTimer);
     if (trialTimer) window.clearTimeout(trialTimer);
+    if (pulseTimer) window.clearTimeout(pulseTimer);
     countdownTimer = undefined;
     trialTimer = undefined;
+    pulseTimer = undefined;
+    pulseKind = null;
     stopSpeech();
   }
 
@@ -170,6 +181,7 @@
       {debugMode}
       {soundSelected}
       {positionSelected}
+      {pulseKind}
       onBack={goHome}
       onMatch={recordMatch}
     />
