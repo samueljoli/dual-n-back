@@ -30,11 +30,16 @@ just verify       # test, type-check, build, cargo check
 - `Space` / `Enter`: start round
 - `Esc`: return home
 
-## Notes
+## Features
 
-Debug mode in Settings shows correct answers during play and an animated n-back replay after the round.
+### Debug Mode
+
+**Shows correct answers during play and an animated n-back replay after the round.**
 
 <img width="5088" height="3356" alt="image" src="https://github.com/user-attachments/assets/79d43528-2615-400e-ad64-20d615356c21" />
+
+**Displays auditory and visual matches at the end of the match**
+
 <img width="5088" height="3356" alt="image" src="https://github.com/user-attachments/assets/84046b0c-84aa-46dd-b0ce-8bb7acf46b6b" />
 
 
